@@ -1,29 +1,34 @@
 # dasc-4300-d2
 
-This template should help get you started developing with Vue 3 in Vite.
+### Welcome to my DASC 4300 project for deliverable 2!
+Actually this SPA is deployed on GitHub page, please
+approach the web application by link: ...
 
-## Recommended IDE Setup
+
+
+
+You can also use IDE to check and edit the codes,
+or you just run the project locally on terminal
+
+### Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Guide for running locally
+### Run following at terminal
 
-## Project Setup
+#### 1) Prepare the environment
+```sh
+cd /your-path.../dasc-4300-d2
+```
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+#### 2) Compile and Hot-Reload for local running
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
