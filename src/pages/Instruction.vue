@@ -5,8 +5,7 @@ export default {
 </script>
 
 <template>
-  <div>
-    <span>this is instruction page</span>
+  <div style="height: 100vh; width: 100vw">
   </div>
 </template>
 
