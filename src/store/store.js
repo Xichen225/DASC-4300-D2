@@ -31,8 +31,7 @@ export const dataFour = reactive({
       "location.type",
       "mean.daynr"
     ],
-    "body": [[1,1,1,1,1,1,1,1,1,1,1,1],
-      [1,1,1,1,1,1,1,1,1,1,1,1]]
+    "body": []
   },
   addRow(row){
     this.dataset.body.push(row)

@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <div style="align-items: center;justify-content: center;display: flex;
+  <div style="align-items: center;display: flex;
    flex-direction: column;padding-top: 170px">
     <span style="font-size: 30px;font-weight: bolder">Settings</span>
     <div>1) You are now collecting the data for

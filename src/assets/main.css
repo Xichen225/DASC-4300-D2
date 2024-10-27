@@ -7,4 +7,13 @@ body,html {
   margin: 0;
   padding: 0;
 }
+.text-tag {
+  margin-left: 80px;
+}
+
+@media (max-width: 1000px) {
+  .text-tag {
+    margin-left: 0;
+  }
+}
 

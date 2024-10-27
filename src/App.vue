@@ -49,9 +49,7 @@ export default{
 </template>
 
 <style scoped>
-.text-tag{
-  margin-left: 80px;
-}
+
 .choose-line{
   border-bottom: solid 5px #228bec;
 }

@@ -154,8 +154,6 @@ return !value.startsWith(" ") && !value.endsWith(" ")
         this.dayNr = this.range.map(this.getDayOfYear);
         this.yearNumber = this.getYear(this.range[0])
         this.MDayNr = (this.dayNr[0]+this.dayNr[1])/2
-        this.dateText[0]=this.getDate(this.range[0])
-        this.dateText[1]=this.getDate(this.range[1])
       }
     },
     writeData5(){
@@ -176,6 +174,10 @@ return !value.startsWith(" ") && !value.endsWith(" ")
     },
     writeData(){
       const row = []
+      if(this.range !== null){
+        this.dateText[0]=this.getDate(this.range[0])
+        this.dateText[1]=this.getDate(this.range[1])
+      }
       if(this.plotName === null){this.plotName = 'NA'}
       if(this.yearNumber === null){this.yearNumber = 'NA'}
       if(this.dateText[0] === null){this.dateText[0] = 'NA'}
@@ -204,7 +206,6 @@ return !value.startsWith(" ") && !value.endsWith(" ")
       this.resetData()
     },
     resetData(){
-      this.range = null
       this.plotName = null;
       this.yearNumber = null;
       this.dateText[0] = null;
