@@ -2,7 +2,7 @@
 
 ### Welcome to my DASC 4300 project for deliverable 2!
 Actually this SPA is deployed on GitHub page, please
-approach the web application by link: ...
+approach the web application by link: https://xichen225.github.io/DASC-4300-D2/
 
 
 
