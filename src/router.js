@@ -3,7 +3,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from './pages/Home.vue'
 import SettingView from './pages/Setting.vue'
 import InstructionView from "./pages/Instruction.vue";
-import CheckChart from "@/pages/CheckChart.vue";
+import CheckChart from "./pages/CheckChart.vue";
 
 const routes = [
   { path: '/', component: HomeView},

@@ -1,56 +1,85 @@
 <template>
-  <div style="padding: 50px">
-    <span>Choose the Date:</span>
-    <n-date-picker
-        v-model:value="range" type="daterange" clearable :on-update-show="getDayNr"
-    size="large"/>
+  <div>
+    <div style="padding-right: 50px;padding-left: 50px" v-if="settings.cMode">
+      <span>Choose the Date:</span>
+      <n-date-picker
+          v-model:value="range" type="daterange" clearable :on-update-show="getDayNr"
+          size="large"/>
+      <span>Mean day number: {{MDayNr}}</span>
+      <div style="display: flex">
+        <span>From day</span>
+        <n-input-number v-model:value="dayNr[0]" clearable placeholder="Day" size="large"
+                        style="display: inline-block;flex: 1" :show-button="false"/>
+        <span>To day</span>
+        <n-input-number v-model:value="dayNr[1]" clearable placeholder="Day" size="large"
+                        style="display: inline-block; flex: 1" :show-button="false"/>
+        <span>In year</span>
+        <n-input-number v-model:value="yearNumber" clearable placeholder="Year" size="large"
+                        style="display: inline-block; flex: 1" :show-button="false"/>
+      </div>
 
-    <div style="display: flex">
-      <span>From day</span>
-      <n-input-number v-model:value="dayNr[0]" clearable placeholder="Day" size="large"
-                      style="display: inline-block;flex: 1" :show-button="false"/>
-      <span>To day</span>
-      <n-input-number v-model:value="dayNr[1]" clearable placeholder="Day" size="large"
-                      style="display: inline-block; flex: 1" :show-button="false"/>
-      <span>In year</span>
-      <n-input-number v-model:value="yearNumber" clearable placeholder="Year" size="large"
-                      style="display: inline-block; flex: 1" :show-button="false"/>
+      <span>Plot name</span>
+      <n-input v-model:value="plotName"
+               type="text" placeholder="No side spaces!" clearable size="large" :allow-input="noSideSpace"/>
+
+      <span>Pot ID</span>
+      <n-input-number v-model:value="potID" clearable placeholder="ID" size="large"
+                       :show-button="false"/>
+      <span>Biomass</span>
+      <n-input-number v-model:value="biomass" clearable placeholder="Number" size="large"
+                      :show-button="false"/>
+      <span>Location Type</span>
+      <n-input-number v-model:value="locateType" clearable placeholder="Type by number" size="large"
+                      :show-button="false"/>
+      <span>East Longitude</span>
+      <n-input-number v-model:value="ENumber" clearable placeholder="Number" size="large"
+                      :show-button="false"/>
+
+      <span>North Latitude</span>
+      <n-input-number v-model:value="NNumber" clearable placeholder="Number" size="large"
+                      :show-button="false"/>
+
+
+<div style="display: flex;align-items: center;justify-content: center; padding-top: 10px;
+padding-bottom: 20px">
+  <n-button type="info" style="color: white;font-size: 23px"
+            size="large" @click="writeData">Add</n-button>
+  <n-button type="warning" style="color: white;font-size: 23px" class="ml-12"
+            size="large" @click="resetData">Reset</n-button>
+</div>
+
+
     </div>
-    <span>Mean day number: {{MDayNr}}</span>
-<span>Plot name</span>
-    <n-input v-model:value="plotName"
-        type="text" placeholder="No side spaces!" clearable size="large" :allow-input="noSideSpace"/>
-
-    <span>Pot ID</span>
-    <n-input-number v-model:value="potID" clearable placeholder="ID" size="large"
-                    style="display: inline-block; flex: 1" :show-button="false"/>
-    <span>Biomass</span>
-    <n-input-number v-model:value="biomass" clearable placeholder="Number" size="large"
-                    style="display: inline-block; flex: 1" :show-button="false"/>
-    <span>Location Type</span>
-    <n-input-number v-model:value="locateType" clearable placeholder="Type by number" size="large"
-                    style="display: inline-block; flex: 1" :show-button="false"/>
-    <span>East Longitude</span>
-    <n-input-number v-model:value="ENumber" clearable placeholder="Number" size="large"
-                    style="display: inline-block; flex: 1" :show-button="false"/>
-
-    <span>North Latitude</span>
-    <n-input-number v-model:value="NNumber" clearable placeholder="Number" size="large"
-                    style="display: inline-block; flex: 1" :show-button="false"/>
 
 
 
-    <n-button type="info" style="color: white;font-size: 23px"
-              size="large" @click="writeData">Add</n-button>
-    <n-button type="info" style="color: white;font-size: 23px"
-              size="large" @click="resetData">Reset</n-button>
+    <div style="padding-right: 50px;padding-left: 50px" v-else>
+      <span>Plot name</span>
+      <n-input v-model:value="plotName"
+               type="text" placeholder="No side spaces!" clearable :allow-input="noSideSpace"/>
+      <span>Pot ID</span>
+      <n-input-number v-model:value="potID" clearable placeholder="ID"
+                      :show-button="false"/>
+      <div v-for="(item,itemIndex) in sFiveNames">
+        {{item}}
+        <n-input-number v-model:value="sFiveData[itemIndex]" clearable :show-button="false"/>
+      </div>
 
+      <div style="display: flex;align-items: center;justify-content: center; padding-top: 10px;
+padding-bottom: 20px">
+      <n-button type="info" style="color: white;font-size: 23px"
+                size="large" @click="writeData5">Add</n-button>
+      <n-button type="warning" style="color: white;font-size: 23px" class="ml-12"
+                size="large" @click="resetData5">Reset</n-button>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
 import {NDatePicker,NInputNumber,NButton,NInput} from "naive-ui";
-import {dataFour} from "@/store/store.js";
+import {dataFour,dataFive,settings} from "@/store/store.js";
 export default {
   components: {
     NDatePicker,
@@ -61,10 +90,12 @@ export default {
   data() {
     return {
       dataFour,
+      dataFive,
+      settings,
       range: null,
       dateText: [null,null],
 
-
+      plotName: null,
       dayNr: [null,null],
       potID: null,
       locateType: null,
@@ -73,8 +104,28 @@ export default {
       MDayNr: null,
       yearNumber: null,
       biomass: null,
-      plotName: null,
 
+      sFiveNames : [
+        'daynr',
+        'year',
+        'temperature',
+        'precipitation',
+        'wind.speed',
+        'frostdays',
+        'sum.precW',
+        'nHerbs',
+        'nTrees',
+        'Nitrogen',
+        'pH',
+        'Moisture',
+        'Light',
+        'ellenTemperature',
+        'Arable.land',
+        'Forest',
+        'Grassland',
+        'Water'
+      ],
+      sFiveData: new Array(18).fill(null),
     }
   },
   methods: {
@@ -107,7 +158,22 @@ return !value.startsWith(" ") && !value.endsWith(" ")
         this.dateText[1]=this.getDate(this.range[1])
       }
     },
-
+    writeData5(){
+      const row = []
+      if(this.potID === null){this.potID = 'NA'}
+      if(this.plotName === null){this.plotName = 'NA'}
+      row.push(this.potID)
+      row.push(this.plotName)
+      const numCol = this.sFiveData.map(item => item === null ? 'NA' : item);
+      numCol.forEach(item => row.push(item));
+      this.dataFive.addRow(row)
+      this.resetData5()
+    },
+    resetData5(){
+      this.potID=null
+      this.plotName=null
+      this.sFiveData= new Array(18).fill(null)
+    },
     writeData(){
       const row = []
       if(this.plotName === null){this.plotName = 'NA'}

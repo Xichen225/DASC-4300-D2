@@ -18,9 +18,8 @@ export default{
 </script>
 <template>
   <div>
-    <n-card style="background-color: #ffffff;height: 60px; display: flex;
+    <n-card style="background-color: #ffffff;height: 60px; display: flex;z-index: 999;
      width: 100vw; position: fixed; align-items: center; justify-content: center">
-
       <div style="display: inline-block" :class="{'choose-line':(routeName === '/')}">
         <v-btn size="x-large" variant="text" @click="goPages('')">
           Home
@@ -33,17 +32,17 @@ export default{
       </div>
       <div style="display: inline-block" :class="{'choose-line':(routeName === '/vision'),'text-tag':true}">
         <v-btn size="x-large" variant="text" @click="goPages('vision')">
-          Check Chart
+          Check Table
         </v-btn>
       </div>
       <div style="display: inline-block" :class="{'choose-line':(routeName === '/setting'),'text-tag':true}">
         <v-btn size="x-large" variant="text" @click="goPages('setting')">
-          Save
+          Settings
         </v-btn>
       </div>
     </n-card>
 
-    <main style="width: 100vw;height: 100vh;background-color: rgba(248,255,248,0.8);padding-top: 60px">
+    <main style="width: 100vw;background-color: rgb(255,255,255);padding-top: 60px">
       <RouterView/>
     </main>
   </div>
