@@ -2,10 +2,13 @@
 
 ### Welcome to my DASC 4300 project for deliverable 2!
 Actually this SPA is deployed on GitHub page, please
-approach the web application by link: ...
+approach the web application by link: https://xichen225.github.io/DASC-4300-D2/
+#### Note: because of the route of github pages, you must click the Home button (or other button) on first page to direct to content!
 
 
-
+components and some styles used from:
+1)https://www.naiveui.com/zh-CN/light
+2)https://vuetifyjs.com/zh-Hans/
 
 You can also use IDE to check and edit the codes,
 or you just run the project locally on terminal
