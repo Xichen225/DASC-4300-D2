@@ -13,7 +13,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/DASC-4300-D2/'),
   routes,
 })
 export default router
