@@ -1,9 +1,8 @@
 # dasc-4300-d2
 
 ### Welcome to my DASC 4300 project for deliverable 2!
-Actually this SPA is deployed on GitHub page, please
+This SPA is deployed on GitHub page, please
 approach the web application by link: https://xichen225.github.io/DASC-4300-D2/
-#### Note: because of the route of github pages, you must click the Home button (or other button) on first page to direct to content!
 
 
 components and some styles used from:
